@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  
+  <!-- ==================== SEO МЕТА-ТЕГИ ==================== -->
+  <meta name="description" content="TimCargo Булаево — карго-доставка из Китая. Быстро, надёжно и по фактическому весу. Доставка от 8 дней, тарифы от 2000 тг/кг. Самовывоз в Булаево.">
+  <meta name="keywords" content="карго, доставка из Китая, Булаево, карго Булаево, посылки из Китая, доставка по весу, TimCargo, карго тарифы, негабарит">
+  <meta name="author" content="TimCargo">
+  <meta name="theme-color" content="#0a0a0a">
+  
+  <title>TimCargo Булаево | Карго-доставка из Китая</title>
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📦</text></svg>">
+  
+  <style>
+    :root {
+      --bg-primary: #0a0a0a;
+      --bg-secondary: #141414;
+      --bg-card: #1a1a1a;
+      --red-accent: #e8112d;
+      --red-glow: #ff3b4a;
+      --red-dark: #b30f24;
+      --text-primary: #f0f0f0;
+      --text-secondary: #a0a0a0;
+      --text-muted: #6b6b6b;
+      --border-color: #2a2a2a;
+      --shadow-glow: 0 0 15px rgba(232, 17, 45, 0.35);
+      --font-main: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+      --transition-fast: 0.2s ease;
+      --transition-smooth: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.5;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      background-image: radial-gradient(circle at 20% 10%, rgba(232, 17, 45, 0.08) 0%, transparent 35%);
+      background-attachment: fixed;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; width: 100%; }
+
+    h2 {
+      font-size: clamp(2rem, 6vw, 2.8rem);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.75rem;
+      background: linear-gradient(135deg, #ffffff 30%, #cccccc 90%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-title { text-align: center; margin-bottom: 2.5rem; }
+    .section-title p { color: var(--text-secondary); font-size: 1.1rem; max-width: 550px; margin: 0 auto; }
+
+    .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    .header { display: flex; justify-content: center; align-items: center; padding: 2rem 0 1rem; }
+    .logo-area { display: flex; align-items: center; gap: 12px; }
+    .logo-icon { font-size: 2.8rem; filter: drop-shadow(0 0 12px var(--red-accent)); animation: float 3s ease-in-out infinite; }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+    .logo-text {
+      font-size: 1.8rem; font-weight: 800; letter-spacing: -1px;
+      background: linear-gradient(180deg, #ffffff 0%, #b0b0b0 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .logo-text span { color: var(--red-accent); background: none; -webkit-text-fill-color: var(--red-accent); }
+
+    .hero { text-align: center; padding: 1.5rem 0 3rem; }
+    .hero h1 { font-size: clamp(2.2rem, 8vw, 3.6rem); font-weight: 800; line-height: 1.1; margin-bottom: 0.5rem; letter-spacing: -1.2px; }
+    .hero .highlight { color: var(--red-accent); text-shadow: 0 0 25px var(--red-glow); }
+    .hero-tagline { font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 0.5rem; }
+    .hero-features { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.8rem 1.8rem; margin: 1.2rem 0 2rem; color: var(--text-secondary); font-weight: 500; }
+    .hero-features span::before { content: "•"; color: var(--red-accent); margin-right: 6px; font-weight: bold; }
+    .hero-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 1rem 2.2rem; border-radius: 50px; font-weight: 600; font-size: 1.05rem;
+      text-decoration: none; cursor: pointer; border: none; transition: var(--transition-smooth);
+      white-space: nowrap; letter-spacing: 0.2px;
+    }
+    .btn-primary { background: linear-gradient(145deg, var(--red-accent), var(--red-dark)); color: white; box-shadow: 0 8px 25px rgba(232, 17, 45, 0.45); border: 1px solid rgba(255,255,255,0.1); }
+    .btn-primary:hover { box-shadow: 0 12px 32px rgba(255,59,74,0.6); transform: translateY(-3px); }
+    .btn-outline { background: transparent; color: white; border: 1.5px solid var(--border-color); backdrop-filter: blur(4px); }
+    .btn-outline:hover { border-color: var(--red-accent); box-shadow: 0 0 20px rgba(232,17,45,0.25); background: rgba(232,17,45,0.08); transform: translateY(-2px); }
+    .btn-small { padding: 0.7rem 1.6rem; font-size: 0.9rem; }
+
+    .sticky-contact { position: fixed; bottom: 25px; right: 25px; z-index: 999; display: none; animation: pop-in 0.4s ease; }
+    @keyframes pop-in { 0% { transform: scale(0.7); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+
+    .tariffs-section { padding: 3rem 0; }
+    .tariff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; margin-bottom: 1.8rem; }
+    .tariff-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.8rem 1.2rem; text-align: center; transition: var(--transition-smooth); }
+    .tariff-card:hover { border-color: var(--red-accent); box-shadow: var(--shadow-glow); transform: translateY(-6px); background: #1e1e1e; }
+    .tariff-weight { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .tariff-price { font-size: 2.4rem; font-weight: 800; color: var(--red-accent); text-shadow: 0 0 15px var(--red-glow); margin: 0.5rem 0; line-height: 1; }
+    .tariff-price small { font-size: 1rem; font-weight: 500; color: var(--text-secondary); }
+    .tariff-desc { color: var(--text-muted); font-size: 0.9rem; }
+    .oversize-card { background: linear-gradient(145deg, #1c1012, #1a1a1a); border: 1px dashed var(--red-accent); border-radius: var(--radius-md); padding: 1.5rem 2rem; text-align: center; max-width: 450px; margin: 0 auto; }
+    .oversize-card h4 { color: var(--red-accent); font-size: 1.2rem; margin-bottom: 0.3rem; }
+    .oversize-card .price { font-size: 1.8rem; font-weight: 700; }
+
+    .info-section { padding: 2.5rem 0; }
+    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+    .info-item { background: var(--bg-secondary); border-radius: var(--radius-md); padding: 1.5rem 1.2rem; display: flex; align-items: flex-start; gap: 14px; border: 1px solid transparent; transition: var(--transition-smooth); }
+    .info-item:hover { border-color: var(--border-color); box-shadow: 0 5px 20px rgba(0,0,0,0.4); }
+    .info-icon { font-size: 2rem; flex-shrink: 0; }
+
+    .gallery-section { padding: 2.5rem 0; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+    .gallery-item { background: var(--bg-card); border-radius: var(--radius-sm); overflow: hidden; aspect-ratio: 1 / 1; border: 1px solid var(--border-color); transition: var(--transition-smooth); }
+    .gallery-item iframe { width: 100%; height: 100%; border: none; }
+    .gallery-item:hover { border-color: var(--red-accent); box-shadow: var(--shadow-glow); }
+
+    .tutorials-section { padding: 2.5rem 0; }
+    .tutorial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .tutorial-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; transition: var(--transition-smooth); }
+    .tutorial-card:hover { border-color: var(--red-accent); box-shadow: var(--shadow-glow); }
+    .tutorial-card h3 { font-size: 1.3rem; margin-bottom: 0.8rem; }
+
+    .address-lines { background: var(--bg-secondary); border-radius: var(--radius-sm); padding: 0.8rem; margin: 1rem 0; }
+    .address-row { display: flex; align-items: center; justify-content: space-between; background: #0a0a0a; border: 1px solid var(--border-color); border-radius: 8px; padding: 0.6rem 1rem; margin-bottom: 6px; font-family: 'Courier New', monospace; font-size: 0.9rem; word-break: break-all; }
+    .address-row span { margin-right: 10px; }
+    .copy-btn {
+      background: transparent; border: 1px solid var(--red-accent); color: var(--red-accent);
+      border-radius: 6px; padding: 0.4rem 1rem; font-size: 0.8rem; font-weight: 600;
+      cursor: pointer; transition: all 0.2s ease; white-space: nowrap;
+      display: inline-flex; align-items: center; gap: 4px;
+    }
+    .copy-btn:hover { background: var(--red-accent); color: white; }
+    .copy-btn:active { transform: scale(0.95); }
+    .reminder { font-size: 0.9rem; color: var(--red-accent); margin-top: 0.8rem; font-weight: 500; text-align: center; }
+
+    .contacts-section { padding: 2.5rem 0; }
+    .contact-buttons { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-bottom: 1.5rem; }
+    .contact-card { background: var(--bg-secondary); border-radius: var(--radius-md); padding: 1.8rem; text-align: center; border: 1px solid var(--border-color); max-width: 480px; margin: 0 auto; }
+
+    .faq-section { padding: 2.5rem 0 3rem; }
+    .faq-item { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-sm); margin-bottom: 10px; overflow: hidden; }
+    .faq-question { width: 100%; background: none; border: none; color: var(--text-primary); padding: 1.2rem 1.5rem; text-align: left; font-size: 1.05rem; font-weight: 600; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-family: var(--font-main); }
+    .faq-icon { font-size: 1.5rem; transition: transform 0.3s ease; color: var(--red-accent); }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; padding: 0 1.5rem; color: var(--text-secondary); }
+    .faq-item.open .faq-answer { max-height: 200px; padding-bottom: 1.2rem; }
+
+    .footer { text-align: center; padding: 2.5rem 0 2rem; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.9rem; }
+
+    @media (max-width: 600px) {
+      .btn { width: 100%; justify-content: center; }
+      .hero-buttons { flex-direction: column; align-items: stretch; }
+      .tariff-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .tutorial-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="header container">
+    <div class="logo-area">
+      <div class="logo-icon">📦</div>
+      <div class="logo-text">Tim<span>Cargo</span> <span style="font-size:1.4rem;">Булаево</span></div>
+    </div>
+  </header>
+
+  <section class="hero container fade-up" id="hero">
+    <h1>Карго доставка <br><span class="highlight">из Китая</span></h1>
+    <p class="hero-tagline">Ваши покупки — наша забота</p>
+    <div class="hero-features">
+      <span>Быстро</span>
+      <span>Надёжно</span>
+      <span>По факту веса</span>
+    </div>
+    <div class="hero-buttons">
+      <a href="#contacts" class="btn btn-primary">💬 Связаться</a>
+      <button class="btn btn-outline" id="shareBtn">🔗 Поделиться сайтом</button>
+    </div>
+  </section>
+
+  <main class="container">
+    
+    <!-- Тарифы -->
+    <section class="tariffs-section fade-up" id="tariffs">
+      <div class="section-title">
+        <h2>Тарифы на доставку</h2>
+        <p>Прозрачные цены без скрытых платежей. Оплата только за фактический вес.</p>
+      </div>
+      <div class="tariff-grid">
+        <div class="tariff-card"><div class="tariff-weight">от 1 кг</div><div class="tariff-price">2150 <small>тг</small></div></div>
+        <div class="tariff-card"><div class="tariff-weight">от 5 кг</div><div class="tariff-price">2100 <small>тг</small></div></div>
+        <div class="tariff-card"><div class="tariff-weight">от 10 кг</div><div class="tariff-price">2050 <small>тг</small></div></div>
+        <div class="tariff-card"><div class="tariff-weight">от 20 кг</div><div class="tariff-price">2000 <small>тг</small></div></div>
+      </div>
+      <div class="oversize-card">
+        <h4>🚛 Негабаритный груз</h4>
+        <p class="price">2350 тг/кг <span style="font-size:0.9rem; color:var(--text-secondary);">+ 2500 тг перегруз</span></p>
+      </div>
+    </section>
+
+    <!-- Инфо -->
+    <section class="info-section fade-up" id="info">
+      <div class="section-title"><h2>Почему выбирают нас</h2></div>
+      <div class="info-grid">
+        <div class="info-item"><div class="info-icon">⏱️</div><div class="info-text"><strong>Доставка от 8 дней</strong><span>Быстрая логистика из Китая</span></div></div>
+        <div class="info-item"><div class="info-icon">⚖️</div><div class="info-text"><strong>Фактический вес</strong><span>Без округлений</span></div></div>
+        <div class="info-item"><div class="info-icon">🚚</div><div class="info-text"><strong>Бесплатная доставка</strong><span>По Булаево от 3 кг</span></div></div>
+        <div class="info-item"><div class="info-icon">📍</div><div class="info-text"><strong>Самовывоз</strong><span>ул. Целинная 30, 10:00–20:00</span></div></div>
+      </div>
+    </section>
+
+    <!-- Галерея с видео-пустышкой -->
+    <section class="gallery-section fade-up" id="gallery">
+      <div class="section-title">
+        <h2>Наши отправления</h2>
+        <p>Реальные фото посылок и склада</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item"><img src="placeholder1.jpg" alt="Фото" onerror="this.outerHTML='<div class=gallery-item style=color:#6b6b6b;display:flex;align-items:center;justify-content:center>📷 Фото</div>'"></div>
+        <div class="gallery-item"><img src="placeholder2.jpg" alt="Склад" onerror="this.outerHTML='<div class=gallery-item style=color:#6b6b6b;display:flex;align-items:center;justify-content:center>🏭 Склад</div>'"></div>
+        <!-- ВИДЕО-ПУСТЫШКА: замените ссылку на своё рабочее видео YouTube -->
+        <div class="gallery-item">
+          <iframe src="https://www.youtube.com/embed/1PGah_U3GqY?rel=0&modestbranding=1" 
+                  title="Видео выдачи" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+          </iframe>
+        </div>
+        <div class="gallery-item"><img src="placeholder1.jpg" alt="Доп." onerror="this.outerHTML='<div class=gallery-item style=color:#6b6b6b;display:flex;align-items:center;justify-content:center>📦 Посылка</div>'"></div>
+      </div>
+      <p style="text-align:center; margin-top:0.8rem; font-size:0.8rem; color:var(--text-muted);">
+        ⚠️ Замените фото и видео на свои. Сейчас видео может не грузиться из-за ограничений правообладателя.
+      </p>
+    </section>
+
+    <!-- Инструкции -->
+    <section class="tutorials-section fade-up" id="tutorials">
+      <div class="section-title">
+        <h2>Как это работает</h2>
+        <p>Простые видеоинструкции для вашего удобства</p>
+      </div>
+      
+      <div class="tutorial-grid">
+        <!-- КАРТОЧКА: Настройка адреса + ВАШЕ ВИДЕО -->
+        <div class="tutorial-card">
+          <h3>🏠 Адрес для заказов</h3>
+          <p>Скопируйте строки ниже и вставьте в адрес доставки на сайте продавца.</p>
+          <!-- ВИДЕО ИНСТРУКЦИЯ ПО АДРЕСУ (ваша ссылка) -->
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&modestbranding=1" 
+                  style="width:100%; aspect-ratio:16/9; border-radius:12px; border:none; margin-bottom:1rem;" 
+                  title="Видео: настройка адреса" allowfullscreen>
+          </iframe>
+          <div class="address-lines">
+            <div class="address-row">
+              <span>低调NORD 001</span>
+              <button class="copy-btn" data-copy="低调NORD 001">📋 Копировать</button>
+            </div>
+            <div class="address-row">
+              <span>18957788787</span>
+              <button class="copy-btn" data-copy="18957788787">📋 Копировать</button>
+            </div>
+            <div class="address-row">
+              <span>浙江省 金华市 义乌市</span>
+              <button class="copy-btn" data-copy="浙江省 金华市 义乌市">📋 Копировать</button>
+            </div>
+            <div class="address-row">
+              <span>福田街道 龙岗路一街6号 8787库房 (低调NORD)</span>
+              <button class="copy-btn" data-copy="福田街道 龙岗路一街6号 8787库房 (低调NORD)">📋 Копировать</button>
+            </div>
+          </div>
+          <div class="reminder">
+            ⚠️ Личный код (低调NORD 001) обязателен!<br>
+            Перед отправкой обязательно напишите менеджеру для проверки адреса.
+          </div>
+        </div>
+
+        <!-- КАРТОЧКА: Привязка карты (ПУСТАЯ ССЫЛКА) -->
+        <div class="tutorial-card">
+          <h3>💳 Как привязать карту</h3>
+          <p>Добавьте карту любого банка РК для быстрой оплаты. Это безопасно.</p>
+          <!-- ЗАМЕНИТЕ src на своё видео -->
+          <iframe src="https://www.youtube.com/embed/ВСТАВЬТЕ_ССЫЛКУ" 
+                  style="width:100%; aspect-ratio:16/9; border-radius:12px; border:none;" 
+                  title="Видео: привязка карты" allowfullscreen>
+          </iframe>
+          <p style="color:var(--text-muted); font-size:0.8rem; margin-top:0.4rem;">⚠️ Вставьте ссылку на видео в src</p>
+        </div>
+
+        <!-- КАРТОЧКА: Отслеживание (ПУСТАЯ ССЫЛКА) -->
+        <div class="tutorial-card">
+          <h3>🔍 Как отследить посылку</h3>
+          <p>Получите трек-номер и проверяйте статус в реальном времени.</p>
+          <!-- ЗАМЕНИТЕ src на своё видео -->
+          <iframe src="https://www.youtube.com/embed/ВСТАВЬТЕ_ССЫЛКУ" 
+                  style="width:100%; aspect-ratio:16/9; border-radius:12px; border:none;" 
+                  title="Видео: отслеживание" allowfullscreen>
+          </iframe>
+          <p style="color:var(--text-muted); font-size:0.8rem; margin-top:0.4rem;">⚠️ Вставьте ссылку на видео в src</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Контакты -->
+    <section class="contacts-section fade-up" id="contacts">
+      <div class="section-title"><h2>Свяжитесь с нами</h2></div>
+      <div class="contact-buttons">
+        <a href="https://wa.me/77001234567" target="_blank" class="btn btn-primary">💬 WhatsApp</a>
+        <a href="https://t.me/TimCargoBot" target="_blank" class="btn btn-outline">✈️ Telegram</a>
+        <a href="tel:+77001234567" class="btn btn-outline">📞 Позвонить</a>
+      </div>
+      <div class="contact-card">
+        <p><strong>📍 Адрес:</strong> г. Булаево, ул. Целинная, 30</p>
+        <p><strong>🕙 График работы:</strong> Ежедневно 10:00 – 20:00</p>
+        <button class="btn btn-outline btn-small" id="mapBtn">🗺️ Открыть карту (2GIS)</button>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section fade-up" id="faq">
+      <div class="section-title"><h2>Часто спрашивают</h2></div>
+      <div class="faq-item">
+        <button class="faq-question">⚖️ Как считается вес? <span class="faq-icon">+</span></button>
+        <div class="faq-answer">Взвешиваем на точных весах, фиксируем фактический вес в кг. Никакого округления вверх.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">⏳ Сколько идет доставка? <span class="faq-icon">+</span></button>
+        <div class="faq-answer">В среднем от 8 до 14 дней из Китая в Булаево.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">📦 Как получить посылку? <span class="faq-icon">+</span></button>
+        <div class="faq-answer">Самовывоз: ул. Целинная, 30, ежедневно 10–20. Или бесплатная доставка от 3 кг.</div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p><strong>TimCargo Булаево</strong> — Доставка товаров из Китая</p>
+      <p>© 2026 Все права защищены</p>
+    </div>
+  </footer>
+
+  <div class="sticky-contact" id="stickyContactBtn">
+    <a href="#contacts" class="btn btn-primary">💬 Связаться</a>
+  </div>
+
+  <script>
+    (function() {
+      // Анимация появления
+      const fadeElements = document.querySelectorAll('.fade-up');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      fadeElements.forEach(el => observer.observe(el));
+
+      // Липкая кнопка
+      const stickyBtn = document.getElementById('stickyContactBtn');
+      const heroSection = document.getElementById('hero');
+      function toggleSticky() {
+        if (stickyBtn && heroSection) {
+          stickyBtn.style.display = heroSection.getBoundingClientRect().bottom < 0 ? 'block' : 'none';
+        }
+      }
+      window.addEventListener('scroll', toggleSticky, { passive: true });
+      window.addEventListener('load', toggleSticky);
+
+      // Поделиться
+      document.getElementById('shareBtn').addEventListener('click', async () => {
+        const data = { title: 'TimCargo Булаево', text: 'Карго из Китая', url: window.location.href };
+        if (navigator.share) {
+          try { await navigator.share(data); } catch {}
+        } else {
+          try { await navigator.clipboard.writeText(window.location.href); alert('✅ Ссылка скопирована!'); }
+          catch { prompt('Скопируйте ссылку:', window.location.href); }
+        }
+      });
+
+      // Карта
+      document.getElementById('mapBtn').addEventListener('click', () => {
+        window.open('https://2gis.kz/bulaevo/geo/70030076178855490', '_blank');
+      });
+
+      // Копирование адресных строк (универсальный метод)
+      function copyToClipboard(text) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.left = '-9999px';
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+          document.execCommand('copy');
+          return true;
+        } catch (err) {
+          return false;
+        } finally {
+          document.body.removeChild(textarea);
+        }
+      }
+
+      document.querySelectorAll('.copy-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const text = btn.getAttribute('data-copy');
+          if (copyToClipboard(text)) {
+            btn.innerHTML = '✅ Скопировано';
+            btn.style.background = 'var(--red-accent)';
+            btn.style.color = 'white';
+            setTimeout(() => {
+              btn.innerHTML = '📋 Копировать';
+              btn.style.background = 'transparent';
+              btn.style.color = 'var(--red-accent)';
+            }, 1500);
+          } else {
+            alert('Не удалось скопировать. Попробуйте вручную: ' + text);
+          }
+        });
+      });
+
+      // FAQ
+      document.querySelectorAll('.faq-question').forEach(q => {
+        q.addEventListener('click', () => {
+          const item = q.parentElement;
+          document.querySelectorAll('.faq-item.open').forEach(open => {
+            if (open !== item) open.classList.remove('open');
+          });
+          item.classList.toggle('open');
+        });
+      });
+
+      console.log('TimCargo — сайт готов. Видео вставлены, копирование работает.');
+    })();
+  </script>
+</body>
+</html>
