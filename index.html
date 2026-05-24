@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-  
+
   <!-- ==================== SEO МЕТА-ТЕГИ ==================== -->
   <meta name="description" content="TimCargo Булаево — карго-доставка из Китая. Быстро, надёжно и по фактическому весу. Доставка от 8 дней, тарифы от 2000 тг/кг. Самовывоз в Булаево.">
   <meta name="keywords" content="карго, доставка из Китая, Булаево, карго Булаево, посылки из Китая, доставка по весу, TimCargo, карго тарифы, негабарит">
   <meta name="author" content="TimCargo">
   <meta name="theme-color" content="#0a0a0a">
-  
+
   <title>TimCargo Булаево | Карго-доставка из Китая</title>
-  
+
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📦</text></svg>">
-  
+
   <style>
     :root {
       --bg-primary: #0a0a0a;
@@ -86,7 +86,7 @@
     .hero-tagline { font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 0.5rem; }
     .hero-features { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.8rem 1.8rem; margin: 1.2rem 0 2rem; color: var(--text-secondary); font-weight: 500; }
     .hero-features span::before { content: "•"; color: var(--red-accent); margin-right: 6px; font-weight: bold; }
-    .hero-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+    .hero-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-bottom: 1.5rem; }
 
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
@@ -99,6 +99,29 @@
     .btn-outline { background: transparent; color: white; border: 1.5px solid var(--border-color); backdrop-filter: blur(4px); }
     .btn-outline:hover { border-color: var(--red-accent); box-shadow: 0 0 20px rgba(232,17,45,0.25); background: rgba(232,17,45,0.08); transform: translateY(-2px); }
     .btn-small { padding: 0.7rem 1.6rem; font-size: 0.9rem; }
+
+    /* QR-блок */
+    .qr-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 1rem;
+    }
+    .qr-block img {
+      width: 130px;
+      height: 130px;
+      border-radius: 16px;
+      background: white;
+      padding: 8px;
+      box-shadow: 0 0 15px rgba(232, 17, 45, 0.3);
+      transition: transform 0.3s ease;
+    }
+    .qr-block img:hover { transform: scale(1.05); }
+    .qr-block span {
+      margin-top: 0.5rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
 
     .sticky-contact { position: fixed; bottom: 25px; right: 25px; z-index: 999; display: none; animation: pop-in 0.4s ease; }
     @keyframes pop-in { 0% { transform: scale(0.7); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
@@ -168,7 +191,7 @@
       .tutorial-grid { grid-template-columns: 1fr; }
     }
   </style>
-  
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -194,10 +217,16 @@
       <a href="#contacts" class="btn btn-primary">💬 Связаться</a>
       <button class="btn btn-outline" id="shareBtn">🔗 Поделиться сайтом</button>
     </div>
+    <!-- Блок с QR-кодом (замените изображение на своё) -->
+    <div class="qr-block">
+      <img src="qr-placeholder.png" alt="QR-код сайта" id="qrCodeImg" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+      <span style="display:none;">📱 Место для QR-кода</span>
+      <span>Отсканируйте, чтобы открыть сайт</span>
+    </div>
   </section>
 
   <main class="container">
-    
+
     <!-- Тарифы -->
     <section class="tariffs-section fade-up" id="tariffs">
       <div class="section-title">
@@ -220,32 +249,32 @@
     <section class="info-section fade-up" id="info">
       <div class="section-title"><h2>Почему выбирают нас</h2></div>
       <div class="info-grid">
-        <div class="info-item"><div class="info-icon">⏱️</div><div class="info-text"><strong>Доставка от 8 дней</strong><span>Быстрая логистика из Китая</span></div></div>
-        <div class="info-item"><div class="info-icon">⚖️</div><div class="info-text"><strong>Фактический вес</strong><span>Без округлений</span></div></div>
-        <div class="info-item"><div class="info-icon">🚚</div><div class="info-text"><strong>Бесплатная доставка</strong><span>По Булаево от 3 кг</span></div></div>
-        <div class="info-item"><div class="info-icon">📍</div><div class="info-text"><strong>Самовывоз</strong><span>ул. Целинная 30, 10:00–20:00</span></div></div>
+        <div class="info-item"><div class="info-icon">⏱️</div><div class="info-text"><strong>Доставка от 8 дней</strong><br><span>Быстрая логистика из Китая</span></div></div>
+        <div class="info-item"><div class="info-icon">⚖️</div><div class="info-text"><strong>Фактический вес</strong><br><span>Без округлений</span></div></div>
+        <div class="info-item"><div class="info-icon">🚚</div><div class="info-text"><strong>Бесплатная доставка</strong><br><span>По Булаево от 3 кг</span></div></div>
+        <div class="info-item"><div class="info-icon">📍</div><div class="info-text"><strong>Самовывоз</strong><br><span>ул. Целинная 30, 10:00–20:00</span></div></div>
       </div>
     </section>
 
-    <!-- Галерея с видео-пустышкой -->
+    <!-- Галерея (переименована) -->
     <section class="gallery-section fade-up" id="gallery">
       <div class="section-title">
-        <h2>Наши отправления</h2>
-        <p>Реальные фото посылок и склада</p>
+        <h2>Фото и видео</h2>
+        <p>Посылки, склад, оплата и другие материалы</p>
       </div>
       <div class="gallery-grid">
         <div class="gallery-item"><img src="placeholder1.jpg" alt="Фото" onerror="this.outerHTML='<div class=gallery-item style=color:#6b6b6b;display:flex;align-items:center;justify-content:center>📷 Фото</div>'"></div>
         <div class="gallery-item"><img src="placeholder2.jpg" alt="Склад" onerror="this.outerHTML='<div class=gallery-item style=color:#6b6b6b;display:flex;align-items:center;justify-content:center>🏭 Склад</div>'"></div>
-        <!-- ВИДЕО-ПУСТЫШКА: замените ссылку на своё рабочее видео YouTube -->
+        <!-- ВИДЕО: замените ID видео (сейчас R9tOwPetH7M) на своё -->
         <div class="gallery-item">
-          <iframe src="https://www.youtube.com/embed/1PGah_U3GqY?rel=0&modestbranding=1" 
+          <iframe src="https://www.youtube.com/embed/R9tOwPetH7M?rel=0&modestbranding=1" 
                   title="Видео выдачи" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
           </iframe>
         </div>
         <div class="gallery-item"><img src="placeholder1.jpg" alt="Доп." onerror="this.outerHTML='<div class=gallery-item style=color:#6b6b6b;display:flex;align-items:center;justify-content:center>📦 Посылка</div>'"></div>
       </div>
       <p style="text-align:center; margin-top:0.8rem; font-size:0.8rem; color:var(--text-muted);">
-        ⚠️ Замените фото и видео на свои. Сейчас видео может не грузиться из-за ограничений правообладателя.
+        ⚠️ Замените фото и видео на свои.
       </p>
     </section>
 
@@ -255,14 +284,14 @@
         <h2>Как это работает</h2>
         <p>Простые видеоинструкции для вашего удобства</p>
       </div>
-      
+
       <div class="tutorial-grid">
-        <!-- КАРТОЧКА: Настройка адреса + ВАШЕ ВИДЕО -->
+        <!-- Адрес + видео -->
         <div class="tutorial-card">
           <h3>🏠 Адрес для заказов</h3>
-          <p>Скопируйте строки ниже и вставьте в адрес доставки на сайте продавца.</p>
-          <!-- ВИДЕО ИНСТРУКЦИЯ ПО АДРЕСУ (ваша ссылка) -->
-          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&modestbranding=1" 
+          <p>Скопируйте строки ниже и вставьте в адрес доставки приложения Pinduoduo</p>
+          <!-- ВАШЕ ВИДЕО: настройка адреса (замените ID при необходимости) -->
+          <iframe src="https://www.youtube.com/embed/R9tOwPetH7M?rel=0&modestbranding=1" 
                   style="width:100%; aspect-ratio:16/9; border-radius:12px; border:none; margin-bottom:1rem;" 
                   title="Видео: настройка адреса" allowfullscreen>
           </iframe>
@@ -285,33 +314,31 @@
             </div>
           </div>
           <div class="reminder">
-            ⚠️ Личный код (低调NORD 001) обязателен!<br>
-            Перед отправкой обязательно напишите менеджеру для проверки адреса.
+            ⚠️ Личный код по типу " 1234 22" обязателен!<br>
+            После настройки обязательно напишите менеджеру для проверки адреса.
           </div>
         </div>
 
-        <!-- КАРТОЧКА: Привязка карты (ПУСТАЯ ССЫЛКА) -->
+        <!-- Привязка карты (пока без видео) -->
         <div class="tutorial-card">
           <h3>💳 Как привязать карту</h3>
           <p>Добавьте карту любого банка РК для быстрой оплаты. Это безопасно.</p>
-          <!-- ЗАМЕНИТЕ src на своё видео -->
-          <iframe src="https://www.youtube.com/embed/ВСТАВЬТЕ_ССЫЛКУ" 
-                  style="width:100%; aspect-ratio:16/9; border-radius:12px; border:none;" 
-                  title="Видео: привязка карты" allowfullscreen>
-          </iframe>
+          <!-- ЗАМЕНИТЕ src на своё видео, когда будет готово -->
+          <div style="background:#111; border-radius:12px; aspect-ratio:16/9; display:flex; align-items:center; justify-content:center; color:var(--text-muted);">
+            🎬 Видео скоро появится
+          </div>
           <p style="color:var(--text-muted); font-size:0.8rem; margin-top:0.4rem;">⚠️ Вставьте ссылку на видео в src</p>
         </div>
 
-        <!-- КАРТОЧКА: Отслеживание (ПУСТАЯ ССЫЛКА) -->
+        <!-- Отслеживание (видео) -->
         <div class="tutorial-card">
           <h3>🔍 Как отследить посылку</h3>
           <p>Получите трек-номер и проверяйте статус в реальном времени.</p>
-          <!-- ЗАМЕНИТЕ src на своё видео -->
-          <iframe src="https://www.youtube.com/embed/ВСТАВЬТЕ_ССЫЛКУ" 
+          <!-- ВАШЕ ВИДЕО: отслеживание (Shorts преобразован в embed) -->
+          <iframe src="https://www.youtube.com/embed/PRontztzV80?rel=0&modestbranding=1" 
                   style="width:100%; aspect-ratio:16/9; border-radius:12px; border:none;" 
                   title="Видео: отслеживание" allowfullscreen>
           </iframe>
-          <p style="color:var(--text-muted); font-size:0.8rem; margin-top:0.4rem;">⚠️ Вставьте ссылку на видео в src</p>
         </div>
       </div>
     </section>
@@ -320,9 +347,10 @@
     <section class="contacts-section fade-up" id="contacts">
       <div class="section-title"><h2>Свяжитесь с нами</h2></div>
       <div class="contact-buttons">
-        <a href="https://wa.me/77001234567" target="_blank" class="btn btn-primary">💬 WhatsApp</a>
+        <!-- ВАЖНО: проверьте номер WhatsApp (сейчас 77773363666). Для Казахстана должен быть 7xxxxxxxxxx без плюса -->
+        <a href="https://wa.me/77773363666" target="_blank" class="btn btn-primary">💬 WhatsApp</a>
         <a href="https://t.me/TimCargoBot" target="_blank" class="btn btn-outline">✈️ Telegram</a>
-        <a href="tel:+77001234567" class="btn btn-outline">📞 Позвонить</a>
+        <a href="tel:+77773363666" class="btn btn-outline">📞 Позвонить</a>
       </div>
       <div class="contact-card">
         <p><strong>📍 Адрес:</strong> г. Булаево, ул. Целинная, 30</p>
@@ -336,7 +364,7 @@
       <div class="section-title"><h2>Часто спрашивают</h2></div>
       <div class="faq-item">
         <button class="faq-question">⚖️ Как считается вес? <span class="faq-icon">+</span></button>
-        <div class="faq-answer">Взвешиваем на точных весах, фиксируем фактический вес в кг. Никакого округления вверх.</div>
+        <div class="faq-answer">Взвешиваем от 100 грамм на точных весах, фиксируем фактический вес в кг. Никакого округления вверх.</div>
       </div>
       <div class="faq-item">
         <button class="faq-question">⏳ Сколько идет доставка? <span class="faq-icon">+</span></button>
@@ -344,7 +372,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-question">📦 Как получить посылку? <span class="faq-icon">+</span></button>
-        <div class="faq-answer">Самовывоз: ул. Целинная, 30, ежедневно 10–20. Или бесплатная доставка от 3 кг.</div>
+        <div class="faq-answer">Самовывоз: ул. Целинная, 30, ежедневно 10:00–20:00. Или бесплатная доставка от 3 кг.</div>
       </div>
     </section>
 
@@ -402,7 +430,7 @@
         window.open('https://2gis.kz/bulaevo/geo/70030076178855490', '_blank');
       });
 
-      // Копирование адресных строк (универсальный метод)
+      // Копирование адресных строк
       function copyToClipboard(text) {
         const textarea = document.createElement('textarea');
         textarea.value = text;
@@ -449,7 +477,7 @@
         });
       });
 
-      console.log('TimCargo — сайт готов. Видео вставлены, копирование работает.');
+      console.log('TimCargo — сайт готов. Видео работают, QR-код добавлен.');
     })();
   </script>
 </body>
